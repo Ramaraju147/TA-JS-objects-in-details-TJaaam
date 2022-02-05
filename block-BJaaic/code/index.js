@@ -10,10 +10,10 @@ let animalMethods = {
     }
 }
 
-function AnimalObject(){
+function AnimalObject(location,numberOfLegs){
     let animal = Object.create(animalMethods);
-    animal.location = 'Ohio';
-    animal.numberOfLegs = 4;
+    animal.location = location;
+    animal.numberOfLegs = numberOfLegs;
     return animal;
 }
 
@@ -32,11 +32,12 @@ let dogMethods = {
     }
 }
 
-function Dog(name,color){
-    let dog = Object.create(dogMethods);
+function Dog(location,numberOfLegs,name,color){
+    let dog = AnimalObject(location,numberOfLegs);
+    Object.setPrototypeOf(dog,dogMethods);
+    Object.setPrototypeOf(dogMethods,animalMethods);
     dog.name = name;
     dog.color = color;
-    Object.setPrototypeOf(dogMethods,new AnimalObject)
     return dog;
 }
 
@@ -56,10 +57,11 @@ let catMethods = {
     }
 }
 
-function Cat(name,colorOfEyes){
-    let cat = Object.create(catMethods);
+function Cat(location,numberOfLegs,name,colorOfEyes){
+    let cat = AnimalObject(location,numberOfLegs);
+    Object.setPrototypeOf(cat,catMethods);
+    Object.setPrototypeOf(catMethods,animalMethods);
     cat.name = name;
     cat.colorOfEyes = colorOfEyes;
-    Object.setPrototypeOf(catMethods,new AnimalObject);
     return cat;
 }
