@@ -27,6 +27,45 @@ Getter
 
 - `length`: returns the current length of the stack.
 
+class Stack{
+    constructor(stack=[]){
+        this.stack = stack;
+    }
+    get length(){
+        return this.stack.length
+    }
+    push(value){
+        this.stack.push(value);
+    }
+    pop(){
+        if(this.length>=1){
+        delete this.stack.splice(this.length-1)
+        }else{
+            alert(`no elements in the stack`)
+        }
+    }
+    peek(index=this.length-1){
+        return this.stack[index]
+    }
+    reverse(){
+        let reverseArr = []
+        let i = this.length-1;
+        while(i>=0){
+            reverseArr.push(this.stack[i]);
+            i--
+        }
+        this.stack = reverseArr;
+        return this.stack;
+    }
+    isEmpty(){
+        return !this.length>0;
+    }
+    displayStack(){
+        let copy = [...this.stack]
+        return copy.join(" ")
+    }
+}
+
 #### Test
 
 ```js
@@ -63,6 +102,36 @@ Methods:
 Getter
 
 - `length`: returns the current length of the stack.
+
+
+class Queue{
+    constructor(queue=[]){
+        this.queue = queue;
+    }
+    get length(){
+        return this.queue.length
+    }
+    enqueue(value){
+        this.queue.push(value);
+    }
+    dequeue(){
+        if(this.length>=1){
+        delete this.queue.splice(0,1)
+        }else{
+            alert(`no elements in the queue`)
+        }
+    }
+    peek(index=0){
+        return this.queue[index]
+    }
+    isEmpty(){
+        return !this.length>0;
+    }
+    displayQueue(){
+        let copy = [...this.queue]
+        return copy.join(" ")
+    }
+}
 
 #### Test
 
