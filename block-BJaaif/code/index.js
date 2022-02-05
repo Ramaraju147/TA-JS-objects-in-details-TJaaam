@@ -5,7 +5,10 @@
 /*** CHALLENGE 1 of 1 ***/
 
 function makePerson(name, age) {
-  // add code here
+  let obj = {};
+  obj.name = name;
+  obj.age = age;
+  return obj;
 }
 
 var vicky = makePerson('Vicky', 24);
@@ -20,9 +23,13 @@ var vicky = makePerson('Vicky', 24);
 
 /*** CHALLENGE 1 of 3 ***/
 
-var personStore = {
-  // add code here
-};
+let storeMethod = {
+  greet(){
+    console.log("hello")
+  }
+}
+
+var personStore = Object.create(storeMethod);
 
 // /********* Uncomment this line to test your work! *********/
 // personStore.greet(); // -> Logs 'hello'
@@ -31,6 +38,10 @@ var personStore = {
 
 function personFromPersonStore(name, age) {
   // add code here
+  let obj = Object.create(storeMethod)
+  obj.name = name;
+  obj.age = age;
+  return obj;
 }
 
 var sandra = personFromPersonStore('Sandra', 26);
@@ -43,6 +54,9 @@ var sandra = personFromPersonStore('Sandra', 26);
 /*** CHALLENGE 3 of 3 ***/
 
 // add code here
+personFromPersonStore.prototype.introduce = function(){
+  console.log(`Hi, my name is ${this.name}`);
+}
 
 // sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
 
@@ -55,6 +69,9 @@ var sandra = personFromPersonStore('Sandra', 26);
 function PersonConstructor() {
   // add code here
 }
+PersonConstructor.prototype.greet = function(){
+  console.log("hello")
+}
 
 // /********* Uncomment this line to test your work! *********/
 var simon = new PersonConstructor();
@@ -64,6 +81,11 @@ var simon = new PersonConstructor();
 
 function personFromConstructor(name, age) {
   // add code here
+  this.name = name;
+  this.age = age;
+}
+personFromConstructor.prototype.greet = function(){
+  console.log("hello")
 }
 
 var mike = personFromConstructor('Mike', 30);
@@ -75,6 +97,10 @@ var mike = personFromConstructor('Mike', 30);
 
 /*** CHALLENGE 3 of 3 ***/
 // add code here
+
+personFromConstructor.prototype.introduce = function(){
+  console.log(`Hi, my name is ${this.name}`)
+}
 
 // mike.introduce(); // -> Logs 'Hi, my name is Mike'
 
@@ -88,6 +114,9 @@ class PersonClass {
   constructor() {
     // add code here
   }
+  greet(){
+    console.log("hello");
+  }
 
   // add code here
 }
@@ -99,6 +128,16 @@ var george = new PersonClass();
 /*** CHALLENGE 2 of 3 ***/
 
 // add code here
+
+class DeveloperClass{
+  constructor(name,age){
+    this.name = name;
+    this.age = age;
+  }
+  introduce(){
+    console.log(`Hello World, my name is ${this.name}`)
+  }
+}
 
 // /********* Uncomment these lines to test your work! *********/
 // var thai = new DeveloperClass('Thai', 32);
@@ -127,9 +166,17 @@ var adminFunctionStore /* Put code here */;
 
 function adminFactory(name, score) {
   // Put code here
+  userFactory(name,score);
 }
 
 /* Put code here for a method called sharePublicMessage*/
+adminFactory.prototype = {
+  sharePublicMessgae(){
+    console.log("Welcome users!")
+  }
+}
+
+Object.setPrototypeOf(adminFactory.prototype,userFunctionStore)
 
 var adminFromFactory = adminFactory('Eva', 5);
 
