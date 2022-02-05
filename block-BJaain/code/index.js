@@ -238,7 +238,7 @@ function print() {
 }
 
 let printNameBob = print.bind(bobObj);
-console.log(printNameBob()); // output??
+console.log(printNameBob()); // output?? 'Bob'
 
 // -------------------
 
@@ -256,8 +256,8 @@ let obj2 = {
   },
 };
 
-let getSecondData = obj2.printSecondData.bind(obj1);
-console.log(getSecondData()); // Output and why ???
+let getSecondData = obj2.printSecondData.bind(obj1); 
+console.log(getSecondData()); // Output and why ??? 2
 
 // --------------
 
@@ -268,7 +268,7 @@ const call = {
   },
 };
 
-call.says(); // output ???
+call.says(); // output ??? Hey, mom just called.
 
 // -----------------
 
@@ -281,7 +281,7 @@ const call = {
 
 let newCall = call.says;
 
-newCall(); // output ???
+newCall(); // output ??? Hey udefined just called.
 
 //  -----------------
 
@@ -299,4 +299,4 @@ const call = {
 
 let newCall = call.anotherCaller;
 
-newCall(); // output ??
+newCall(); // output ?? undefined called, too!
