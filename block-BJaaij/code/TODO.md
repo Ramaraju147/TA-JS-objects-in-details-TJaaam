@@ -27,7 +27,6 @@ class Book{
         this.isRead = !this.isRead
         this.finishedDate = Date.now();
     }
-
 }
 
 
