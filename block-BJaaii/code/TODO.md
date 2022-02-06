@@ -104,6 +104,7 @@ Getter
 - `length`: returns the current length of the stack.
 
 
+
 class Queue{
     constructor(queue=[]){
         this.queue = queue;
