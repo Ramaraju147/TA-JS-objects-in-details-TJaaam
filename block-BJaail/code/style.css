@@ -75,6 +75,12 @@ table {
           justify-content: center;
 }
 
+.justify-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 input {
   display: block;
   width: 100%;
@@ -88,11 +94,20 @@ label {
   font-size: 1.5rem;
 }
 
+li {
+  background: #f0f0f0;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+
+.fa-times {
+  color: red;
+}
+
 .flex-33 {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 33%;
           flex: 0 1 33%;
-  text-align: center;
   font-size: 1.3rem;
   font-weight: bold;
 }
